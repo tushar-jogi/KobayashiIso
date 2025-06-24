@@ -7,5 +7,7 @@ interfacial energy is assumed which will simulate isotropic directional growth.
 The phase-field equation is solved using implicit-explicit scheme, whereas heat equation is solved 
 using backward Euler scheme.
 
+The repository contains python as well as C++ project.
+
 
 
