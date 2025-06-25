@@ -25,7 +25,7 @@ python/
 
 ---
 
-## ⚙️ Configuration (`config.yaml`)
+## ⚙️ Configuration (`params.yaml`)
 You can configure the simulation grid, time step, material constants, and output frequency in `config.yaml`:
 
 ```yaml
