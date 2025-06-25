@@ -87,7 +87,7 @@ This project is licensed under the MIT License.
 ---
 
 ## ✉️ Contact
-For questions, reach out via [jenna@phasetree.ai](mailto:jenna@phasetree.ai).
+For questions, reach out via Tushar Jogi [tushar.jogi@gmail.com](mailto:tushar.jogi@gmail.com).
 
 ```
 ```
