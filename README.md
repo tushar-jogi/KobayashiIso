@@ -9,5 +9,19 @@ using backward Euler scheme.
 
 The repository contains python as well as C++ project.
 
+### Prerequisites
+
+To install these package miniforge/miniconda package management tool is required. 
+Miniforge/Miniconda can be installed using documentation on following [link](https://docs.conda.io/projects/conda/en/latest/index.html#).
+
+The codes will work best under the environment provided with file `env.yml`.
+
+To load this file
+
+`   
+conda env create -f env.yml
+conda activate kobayashi
+`
+
 
 

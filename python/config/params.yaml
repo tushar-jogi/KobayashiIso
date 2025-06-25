@@ -1,0 +1,12 @@
+Nx: 100
+Ny: 100
+dx: 0.03
+dy: 0.03
+dt: 0.0002
+steps: 1000
+save_interval: 100
+K: 1.4
+epsilon: 0.01
+tau: 0.0003
+a_noise: 0.01
+
