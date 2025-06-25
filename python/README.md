@@ -87,7 +87,7 @@ This project is licensed under the MIT License.
 ---
 
 ## ✉️ Contact
-For questions, reach out via Tushar Jogi [tushar.jogi@gmail.com](mailto:tushar.jogi@gmail.com).
+For questions, reach out to Tushar Jogi ([tushar.jogi@gmail.com](mailto:tushar.jogi@gmail.com)).
 
 ```
 ```
