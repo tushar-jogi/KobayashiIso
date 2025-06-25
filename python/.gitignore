@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Output files
+data/*.h5
+data/*.png
+
+# Env files
+.env
+*.env
+
