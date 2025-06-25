@@ -17,6 +17,7 @@ Miniforge/Miniconda can be installed using documentation on following [link](htt
 The codes will work best under the environment provided with file `env.yml`.
 
 To load the environment
+
 `$ conda env create -f env.yml`
 
 `$ conda activate kobayashi`
