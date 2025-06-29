@@ -62,9 +62,9 @@ python main.py
 
 3. Outputs:
    - `output_XXXXX.h5` files contain the phase (`p`) and temperature (`T`) fields.
-      - `visualization_XXXXX.png` files visualize the current state of the fields.
+   - `visualization_XXXXX.png` files visualize the current state of the fields.
 
-      ---
+---
 
 ## 📊 Visualization
 Each saved step generates a PNG image comparing the phase and temperature fields. 
