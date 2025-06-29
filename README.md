@@ -135,8 +135,8 @@ Kobayashi 1993 directional solidification setup:
     |     ┌──────────────────────────────┐
     |     │                              │
     |     │                              │
-T=T_cool │                              │ ∂T/∂n = 0
-∂p/∂n=0  │                              │ ∂p/∂n = 0
+T=T_cool  │                              │ ∂T/∂n = 0
+∂p/∂n=0   │                              │ ∂p/∂n = 0
     |     │                              │
     |     └──────────────────────────────┘
           ∂T/∂n = 0          ∂p/∂n = 0
