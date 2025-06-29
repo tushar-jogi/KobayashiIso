@@ -41,7 +41,6 @@ This will install the required packages including:
 * `h5py`
 * `pyyaml`
 * `petsc4py`
-* `mpi4py`
 
 All dependencies are sourced from **conda-forge** to ensure compatibility.
 
@@ -54,10 +53,10 @@ All dependencies are sourced from **conda-forge** to ensure compatibility.
 The Python simulation is structured around the main driver script:
 
 ```bash
-mpiexec -n 4 python main.py
+python python/src/main.py
 ```
 
-This will run the directional solidification simulation in parallel using 4 MPI processes.
+This will run the directional solidification simulation using python code
 
 Simulation data will be saved to the `data/` directory in `.h5` and `.png` formats for analysis and visualization.
 
@@ -71,16 +70,28 @@ The C++ implementation is available in the `cpp/` directory (to be documented se
 ```
 .
 ├── python/                # Python implementation
-│   ├── main.py            # Python driver script
-│   ├── utils.py           # Utilities: solvers, BCs, I/O
-│   └── config/
-│       └── params.yaml    # Simulation parameters
-├── cpp/                   # C++ implementation (optional)
-├── results/               # Output: .h5 and .png files
-├── env.yml                # Conda environment specification
-├── requirements.txt       # pip-based dependency list
+│   ├── src/               # Core simulation code
+│   │   ├── main.py        # Python driver script
+│   │   └── utils.py       # Utilities: solvers, BCs, I/O
+│   ├── data/              # Output data: .h5 and .png files
+│   ├── tests/             # Unit tests
+│   └── README.md          # Python-specific documentation
+├── cpp/                   # C++ implementation
+    ├── src/               # Source directory 
+│   │   ├── main.cpp       # CPP main script
+│   │   └── utils.cpp      # Utilities: solvers, BCs, I/O
+│   ├── data/              # Output data: .h5 and .png files
+│   ├── tests/             # Unit tests
+│   └── README.md          # CPP-specific documentation
+├── config/
+│   └── params.yaml        # Simulation parameters
+├── results/               # Aggregated simulation results and plots
+├── environment/
+│   ├──env.yml             # Conda environment specification
+    └── requirements.txt   # pip-based dependency list
 ├── .gitignore             # Git ignore file
 └── README.md              # Project documentation
+
 ```
 
 ---
