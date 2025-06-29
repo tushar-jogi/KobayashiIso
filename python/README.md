@@ -47,7 +47,7 @@ gamma: 10.0
 
 ## 🚀 How to Run
 
-1. Install the required packages:
+1. Install the required packages and activate the environment:
 ```bash
 conda env create -f ../env.yml
 ```
