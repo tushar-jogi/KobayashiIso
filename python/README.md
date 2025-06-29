@@ -19,7 +19,7 @@ python/
 │   ├── main.py                  # Main simulation driver 
 │   └── utils.py                 # Utility functions (Laplacisn, solver, I/O, visualization)
 ├── README.md
-├── requirements.txt             # (optional) Python dependencies
+├── requirements.txt             # (optional) Python dependencies for pip
 └── .gitignore              
 ```
 
@@ -49,7 +49,7 @@ gamma: 10.0
 
 1. Install the required packages:
 ```bash
-pip install numpy matplotlib h5py petsc4py pyyaml
+conda env create -f ../env.yml
 ```
 
 2. Run the simulation:
@@ -64,14 +64,14 @@ python main.py
       ---
 
 ## 📊 Visualization
-Each saved step generates a PNG image comparing the phase and temperature fields. You can view them in any image viewer or compile them into a video using `ffmpeg`.
+Each saved step generates a PNG image comparing the phase and temperature fields. 
 
 ---
 
 ## 🧪 Testing
-To add tests, create a `tests/` folder and write `pytest` or `unittest` based scripts for:
-- `laplacian()`
-- `m_func()`
+Open the tests folder and run tests for following functions:
+- `build_heat_matrix()`
+- `build_phase_matrix()`
 - `solve_heat_equation()`
 
 ---
@@ -81,19 +81,6 @@ To add tests, create a `tests/` folder and write `pytest` or `unittest` based sc
 
 ---
 
-## 📝 License
-This project is licensed under the MIT License.
-
----
-
 ## ✉️ Contact
 For questions, reach out to Tushar Jogi ([tushar.jogi@gmail.com](mailto:tushar.jogi@gmail.com)).
 
-```
-```
-```
-```
-```
-```
-```
-```
