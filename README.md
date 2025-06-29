@@ -93,6 +93,7 @@ This will create `bin` folder in `cpp` and output files will be saved in `cpp/da
 │   │   ├── main.cpp       # CPP main script
 │   │   └── utils.cpp      # Utilities: solvers, BCs, I/O
 │   ├── data/              # Output data: .h5 and .png files
+|   ├── include/           # Header files 
 │   ├── tests/             # Unit tests
 │   └── README.md          # CPP-specific documentation
 ├── config/
