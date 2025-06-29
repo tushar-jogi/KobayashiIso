@@ -51,6 +51,9 @@ gamma: 10.0
 ```bash
 conda env create -f ../env.yml
 ```
+```bash
+conda activate kobayashi
+```
 
 2. Run the simulation:
 ```bash
