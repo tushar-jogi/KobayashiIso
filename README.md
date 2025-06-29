@@ -89,38 +89,6 @@ The C++ implementation is available in the `cpp/` directory (to be documented se
 
 ---
 
-## 👥 Acknowledgements
-
-This work builds on the foundational phase-field models of solidification and is intended as a teaching and research tool for phase transformation modeling in materials science.
-
----
-
-## 🔄 Parallel Execution Support
-
-This code is MPI-enabled using `petsc4py`. To run in parallel:
-
-```bash
-mpiexec -n 4 python main.py
-```
-
-PETSc matrices and solvers will distribute work across ranks automatically.
-
-### File Output Safety
-
-* Only **rank 0** writes output files (`.h5`, `.png`) to avoid collision
-* Rank-aware naming can be added for per-process debug output
-* To write all ranks to the same file, use **parallel HDF5** (`h5py` with `driver='mpio'`)
-
-### Safe I/O Summary
-
-| Case                      | Strategy                           |
-| ------------------------- | ---------------------------------- |
-| One file, one rank        | `if rank == 0:` ✅                  |
-| One file per rank         | Append `rank` to filenames ✅       |
-| Collective parallel write | Use `h5py` with `driver='mpio'` 🧪 |
-
----
-
 ## 🌌 Boundary Conditions Summary
 
 Kobayashi 1993 directional solidification setup:
@@ -131,16 +99,16 @@ Kobayashi 1993 directional solidification setup:
 ```text
     ^ y
     |
-    |           ∂T/∂n = 0          ∂p/∂n = 0
-    |     ┌──────────────────────────────┐
-    |     │                              │
-    |     │                              │
-T=T_cool  │                              │ ∂T/∂n = 0
-∂p/∂n=0   │                              │ ∂p/∂n = 0
-    |     │                              │
-    |     └──────────────────────────────┘
-          ∂T/∂n = 0          ∂p/∂n = 0
-               -------------------------> x
+    |                   ∂T/∂n = 0, ∂p/∂n = 0
+    |             ┌──────────────────────────────┐
+    |             │                              │
+    |             │                              │
+    |   T=T_cool  │                              │ ∂T/∂n = 0
+    |   ∂p/∂n=0   │                              │ ∂p/∂n = 0
+    |             │                              │
+    |             └──────────────────────────────┘
+    |                    ∂T/∂n = 0, ∂p/∂n = 0
+     --------------------------------------> x
 ```
 
 ---
