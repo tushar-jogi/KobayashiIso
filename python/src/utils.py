@@ -1,10 +1,10 @@
 #utils.py
 import numpy as np
-import h5py 
-import matplotlib 
+import h5py
+import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt 
-from petsc4py import PETSc 
+import matplotlib.pyplot as plt
+from petsc4py import PETSc
 
 def initialize_fields(Nx, Ny, T_liquid=0.0):
 
@@ -57,7 +57,7 @@ def build_heat_matrix(Nx, Ny, dx, dt):
     for i in range(Nx):
         for j in range(Ny):
             row = I(i, j)
-            
+
             if (i == 0):
                 A.setValue(row, row, 1.0)
                 continue
@@ -126,7 +126,7 @@ def solve_phase_field_equation(p, epsilon, tau, a, mT, dx, dt, Nx, Ny):
         print("WARNING: PETSc phase solver did not converge.")
 
     return x.getArray().reshape((Nx, Ny))
-    
+
 
 def solve_heat_equation(T, dpdt, dt, dx, Nx, Ny, K):
 
@@ -153,7 +153,7 @@ def solve_heat_equation(T, dpdt, dt, dx, Nx, Ny, K):
 
 def save_output(p, T, step):
     
-    with h5py.File(f"data/output_{step:f}.h5", "w") as f:
+    with h5py.File(f"python/data/output_{step:.1f}.h5", "w") as f:
         f.create_dataset("p", data = p) 
         f.create_dataset("T", data = T)
 
@@ -161,13 +161,13 @@ def visualize_fields(p, T, step):
 
     fig, axs = plt.subplots(1, 2, figsize = (10, 4)) 
     im0 = axs[0].imshow(p.T, cmap = 'viridis', origin = 'lower') 
-    axs[0].set_title(f'Phase Field (time {step})') 
+    axs[0].set_title(f'Phase Field (time {step:.1f})') 
     plt.colorbar(im0, ax = axs[0]) 
     
     im1 = axs[1].imshow (T.T, cmap = 'inferno', origin = 'lower') 
-    axs[1].set_title (f'Temperature Field (time {step})') 
+    axs[1].set_title (f'Temperature Field (time {step:.1f})') 
     plt.colorbar (im1, ax = axs[1]) 
 
     plt.tight_layout()
-    plt.savefig (f"data/visualization_{step:f}.png") 
+    plt.savefig (f"python/data/visualization_{step:f}.png") 
     plt.close ()
