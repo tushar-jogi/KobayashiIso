@@ -2,7 +2,7 @@
 
 **KobatashiIso** is a computational framework for simulating solid–liquid interface migration using the phase-field method. It numerically solves a coupled set of partial differential equations governing dendritic solidification in undercooled melts, as described in the seminal work by Ryo Kobayashi (Physica D, 1993).
 
-This repository provides implementations in both **Python** and **C++**, allowing researchers and students to explore high-fidelity simulations of **directional solidification with isotropic interfacial energy**.
+This repository provides implementations in both **Python** and **C++**, allowing researchers and students to explore high-fidelity simulations of **directional solidification with isotropic interfacial energy**. The current version is implement in 2D
 
 ---
 
@@ -12,7 +12,7 @@ This repository provides implementations in both **Python** and **C++**, allowin
 * ✅ Supports **directional solidification with isotropic interfacial energy**
 * ✅ Phase-field equation solved via **implicit-explicit (IMEX)** time integration
 * ✅ Heat equation solved via **implicit backward Euler** method
-* ✅ Parallelized using **MPI** and **PETSc**
+* ✅ Easily extendable to **3D simulation**
 * ✅ Python interface for ease of prototyping; C++ version for high performance
 
 ---
@@ -30,7 +30,7 @@ This project includes a Conda environment file: [`env.yml`](./env.yml)
 To set up the environment:
 
 ```bash
-conda env create -f env.yml
+conda env create -f environment/env.yml
 conda activate kobayashi
 ```
 
@@ -48,21 +48,33 @@ All dependencies are sourced from **conda-forge** to ensure compatibility.
 
 ## 🚀 Running the Simulation
 
+The bash script is provided to either run python or cpp version. 
+To execute the `run.sh` script, make sure it executable, if not run following command on terminal:
+
+```bash
+chmod +x run.sh
+```
 ### Python Version
 
 The Python simulation is structured around the main driver script:
 
 ```bash
-python python/src/main.py
+./run.sh python
 ```
 
 This will run the directional solidification simulation using python code
 
-Simulation data will be saved to the `data/` directory in `.h5` and `.png` formats for analysis and visualization.
+Simulation data will be saved to the `python/data/` directory in `.h5` and `.png` formats for analysis and visualization.
 
 ### C++ Version
 
-The C++ implementation is available in the `cpp/` directory (to be documented separately). Compilation instructions will be provided in a dedicated `README_cpp.md`.
+The C++ implementation is available in the `cpp/` directory. To compile and run the cpp version:
+
+```bash
+./run.sh cpp
+```
+
+This will create `bin` folder in `cpp` and output files will be saved in `cpp/data` 
 
 ---
 
