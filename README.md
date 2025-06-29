@@ -68,17 +68,19 @@ The C++ implementation is available in the `cpp/` directory (to be documented se
 ---
 
 ## 📁 Directory Structure
-
 ```
 .
-├── main.py                 # Python driver script
-├── utils.py                # Utilities: solvers, BCs, I/O
-├── config/
-│   └── params.yaml         # Simulation parameters
-├── data/                   # Output: .h5 and .png files
-├── cpp/                    # C++ implementation (optional)
-├── env.yml                 # Conda environment specification
-└── README.md
+├── python/                # Python implementation
+│   ├── main.py            # Python driver script
+│   ├── utils.py           # Utilities: solvers, BCs, I/O
+│   └── config/
+│       └── params.yaml    # Simulation parameters
+├── cpp/                   # C++ implementation (optional)
+├── results/               # Output: .h5 and .png files
+├── env.yml                # Conda environment specification
+├── requirements.txt       # pip-based dependency list
+├── .gitignore             # Git ignore file
+└── README.md              # Project documentation
 ```
 
 ---
