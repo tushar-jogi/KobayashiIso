@@ -109,7 +109,7 @@ This will create `bin` folder in `cpp` and output files will be saved in `cpp/da
 ---
 
 ## 🧾 Simulation Parameters
-```
+
 | Name              | Type    | Description                                    |
 | ----------------- | ------- | ---------------------------------------------- |
 | `epsilon`         | float   | Gradient energy coefficient (interface width). |
@@ -126,7 +126,7 @@ This will create `bin` folder in `cpp` and output files will be saved in `cpp/da
 | `output_interval` | int     | Frequency (in steps) for saving outputs.       |
 | `p`               | ndarray | Phase field array (0 = liquid, 1 = solid).     |
 | `T`               | ndarray | Temperature field array.                       |
-```
+
 
 ---
 
