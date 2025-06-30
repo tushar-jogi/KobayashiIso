@@ -1,0 +1,6 @@
+PROJECT_NAME           = "KobayashiIso"
+INPUT                  = ../cpp/src ../cpp/include
+RECURSIVE              = YES
+GENERATE_XML           = YES
+OUTPUT_DIRECTORY       = doxygen
+

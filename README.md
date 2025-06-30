@@ -104,7 +104,28 @@ This will create `bin` folder in `cpp` and output files will be saved in `cpp/da
     └── requirements.txt   # pip-based dependency list
 ├── .gitignore             # Git ignore file
 └── README.md              # Project documentation
+```
 
+---
+
+## 🧾 Simulation Parameters
+```
+| Name              | Type    | Description                                    |
+| ----------------- | ------- | ---------------------------------------------- |
+| `epsilon`         | float   | Gradient energy coefficient (interface width). |
+| `tau`             | float   | Phase-field relaxation time.                   |
+| `K`               | float   | Dimensionless latent heat.                     |
+| `alpha`           | float   | Parameter controlling the m(T) function.       |
+| `gamma`           | float   | Sharpness of the tanh in m(T).                 |
+| `mT`              | ndarray | Driving force for phase-field evolution.       |
+| `dt`              | float   | Time step size.                                |
+| `dx`, `dy`        | float   | Spatial grid resolution.                       |
+| `Nx`, `Ny`        | float   | Number of grid points in X and Y directions.   |
+| `a`               | float   | Strength of added noise.                       |
+| `steps`           | int     | Number of time steps to simulate.              |
+| `output_interval` | int     | Frequency (in steps) for saving outputs.       |
+| `p`               | ndarray | Phase field array (0 = liquid, 1 = solid).     |
+| `T`               | ndarray | Temperature field array.                       |
 ```
 
 ---

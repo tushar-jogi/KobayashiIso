@@ -1,0 +1,37 @@
+src.io\_utils package
+=====================
+
+Submodules
+----------
+
+src.io\_utils.read module
+-------------------------
+
+.. automodule:: src.io_utils.read
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.io\_utils.save module
+-------------------------
+
+.. automodule:: src.io_utils.save
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.io\_utils.visualize module
+------------------------------
+
+.. automodule:: src.io_utils.visualize
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.io_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
