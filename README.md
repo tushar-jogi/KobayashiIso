@@ -130,12 +130,6 @@ This will create `bin` folder in `cpp` and output files will be saved in `cpp/da
 
 ---
 
-## 📘 References
-
-* R. Kobayashi, *Modeling and numerical simulations of dendritic crystal growth*, Physica D 63 (1993), 410–423.
-
----
-
 ## 🌌 Boundary Conditions Summary
 
 Kobayashi 1993 directional solidification setup:
@@ -157,6 +151,11 @@ Kobayashi 1993 directional solidification setup:
     |                    ∂T/∂n = 0, ∂p/∂n = 0
      --------------------------------------> x
 ```
+---
+
+## 📘 References
+
+* R. Kobayashi, *Modeling and numerical simulations of dendritic crystal growth*, Physica D 63 (1993), 410–423.
 
 ---
 
