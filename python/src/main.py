@@ -3,13 +3,13 @@ import numpy as np
 import h5py
 import yaml
 from petsc4py import PETSc
+from config import load_config
 from utils import initialize_fields, m_func, solve_heat_equation, save_output, visualize_fields
 from utils import solve_phase_field_equation
 from utils import apply_boundary_conditions
 
 # Load parameters from config.yaml
-with open("python/config/params.yaml", "r") as f:
-        params = yaml.safe_load(f)
+params = load_config()
 
 Nx, Ny = params['Nx'], params['Ny']
 Lx, Ly = params['Lx'], params['Ly']
