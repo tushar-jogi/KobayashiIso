@@ -1,4 +1,4 @@
-from .initializer import initialize_fields
+from .initialize import initialize_fields
 
 __all__ = ["initialize_fields"]
 

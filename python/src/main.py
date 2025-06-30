@@ -2,14 +2,19 @@
 import numpy as np
 import h5py
 import yaml
-from petsc4py import PETSc
-from config import load_config
-from utils import initialize_fields, m_func, solve_heat_equation, save_output, visualize_fields
-from utils import solve_phase_field_equation
-from utils import apply_boundary_conditions
 
-# Load parameters from config.yaml
-params = load_config()
+from petsc4py import PETSc
+from io_utils.read  import load_params 
+from io_utils.save import write_h5 
+from io_utils.visualize import write_png 
+from bc.boundary_conditions import apply_boundary_conditions
+from fields.initialize import initialize_fields
+from solvers.phase import solve_phase_field_equation
+from solvers.heat import solve_heat_equation
+from utils.math_utils import m_func
+
+# Load parameters from params.yaml
+params = load_params()
 
 Nx, Ny = params['Nx'], params['Ny']
 Lx, Ly = params['Lx'], params['Ly']
@@ -59,8 +64,8 @@ for step in range(steps):
 
     # write output 
     if step % output_interval == 0:
-        save_output(p, T, step*dt)
-        visualize_fields(p, T, step*dt)
+        write_h5(p, T, step*dt)
+        write_png(p, T, step*dt)
         print(f"Time {step*dt}: saved output")
 
 print("Simulation complete.")
