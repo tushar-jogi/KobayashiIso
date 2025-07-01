@@ -21,6 +21,6 @@ def load_params():
         dict: Parsed configuration parameters
     """
     #path = os.getcwd() + "/config/params.yaml"
-    path =  "../../config/params.yaml"
+    path =  "config/params.yaml"
     with open(path, 'r') as f:
         return yaml.safe_load(f)

@@ -46,8 +46,8 @@ add_library(kobayashi_core
 target_link_libraries(kobayashi_core petsc yaml-cpp hdf5_cpp hdf5)
 
 # === Executable ===
-add_executable(CPPKobayashi src/main.cpp)
-target_link_libraries(CPPKobayashi kobayashi_core)
+add_executable(CPPKobayashiIso src/main.cpp)
+target_link_libraries(CPPKobayashiIso kobayashi_core)
 
 # === Tests ===
 enable_testing()

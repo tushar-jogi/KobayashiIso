@@ -5,6 +5,7 @@ visualize.py : Generates png files for p and T using matplotlib
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import os
 
 def write_png(p, T, step, dim=2):
 
@@ -19,6 +20,9 @@ def write_png(p, T, step, dim=2):
     Returns:
         No return
     """
+    output_dir = "python/data"
+    os.makedirs(output_dir, exist_ok=True)
+
     if dim == 2:
         fig, axs = plt.subplots(1, 2, figsize = (10, 4)) 
         im0 = axs[0].imshow(p.T, cmap = 'viridis', origin = 'lower') 
@@ -30,7 +34,7 @@ def write_png(p, T, step, dim=2):
         plt.colorbar (im1, ax = axs[1]) 
 
         plt.tight_layout()
-        plt.savefig (f"../data/visualization_{step:f}.png") 
+        plt.savefig (f"{output_dir}/visualization_{step:f}.png") 
         plt.close ()
 
     elif dim == 3:

@@ -9,17 +9,46 @@
 # Check argument
 if [ "$1" == "python" ]; then
     echo "🔁 Running Python version..."
-    python python/src/main.py
+    python python/pyKobayashiIso/main.py
+
+elif [ "$1" == "pythontest" ]; then
+    echo "🔁 Running Python tests..."
+    cd python/pyKobayashiIso
+    python -m unittest discover -s tests
 
 elif [ "$1" == "cpp" ]; then
     echo "🔁 Running C++ version..."
     cd cpp
-    make                # or your preferred build system
-    ./kobayashi_sim
+    mkdir -p build
+    mkdir -p data
+    cd build
+    cmake ..
+    make                
+    ./CPPKobayashiIso
+
+elif [ "$1" == "cpptest" ]; then
+    echo "🔁 Running C++ test..."
+    cd cpp
+    mkdir -p build
+    cd build
+    cmake ..
+    make                
+    ./test_CPP
+
+
+elif ["$1" == "help"]; then
+    echo ""
+    echo "Usage:"
+    echo "  ./run.sh python      # Run Python version"
+    echo "  ./run.sh pythontest  # Run Python tests"
+    echo "  ./run.sh cpp         # Run C++ version"
+    echo "  ./run.sh cpptest     # Run C++ unit tests"
+    echo "  ./run.sh --help      # Show this help message"
+    echo ""]
 
 else
     echo "Invalid argument."
-    echo "Usage: ./run.sh [python|cpp]"
+    echo "Usage: ./run.sh [python|cpp|pythontest|cpptest|help]"
     exit 1
 fi
 
