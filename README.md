@@ -74,38 +74,60 @@ The C++ implementation is available in the `cpp/` directory. To compile and run 
 ./run.sh cpp
 ```
 
-This will create `bin` folder in `cpp` and output files will be saved in `cpp/data` 
+This will create `build` folder in `cpp` and output files will be saved in `cpp/data` 
+
+For correct executation of cpp project, petsc installation should be properly done.
+The package uses *PETSc 3.21.4* version.
+The installed petsc version can compiled with following command
+
+```
+./configure --force --download-vtk --with-vtk=1 --download-mpich --download-fftw --download-hdf5 --download-fblaslapack=1 --download-zlib --with-cxx-dialect=C++11 --download-hypre --with-debugging=0 --with-mpi-f90module-visibility=0 --with-hdf5=1 --with-hdf5-dir=$CONDA_PREFIX --with-hdf5-fortran-bindings=1 --with-cc=gcc --with-cxx=g++ --with-fc=gfortran -CFLAGS="-O3" -CXXFLAGS="-O3" -FFLAGS="-O3" -CUDAOPTFLAGS="-G"
+```
 
 ---
 
 ## 📁 Directory Structure
 ```
 .
-├── python/                # Python implementation
-│   ├── src/               # Core simulation code
-│   │   ├── main.py        # Python driver script
-│   │   └── utils.py       # Utilities: solvers, BCs, I/O
-│   ├── data/              # Output data: .h5 and .png files
-│   ├── tests/             # Unit tests
-│   └── README.md          # Python-specific documentation
-├── cpp/                   # C++ implementation
-    ├── src/               # Source directory 
-│   │   ├── main.cpp       # CPP main script
-│   │   └── utils.cpp      # Utilities: solvers, BCs, I/O
-│   ├── data/              # Output data: .h5 and .png files
-|   ├── include/           # Header files 
-│   ├── tests/             # Unit tests
-│   └── README.md          # CPP-specific documentation
+├── python/                          # Python implementation
+│   ├── pyKobayashiIso/              # Python package/module
+│   │   ├── bc/                      # Boundary condition functions (optional)
+│   │   ├── io_utils/                # HDF5 and image I/O
+│   │   ├── fields/                  # Field initialization and manipulation
+│   │   ├── solvers/                 # Numerical solvers (phase + heat)
+│   │   ├── tests/                   # Unit tests
+│   │   ├── utils/                   # Helper functions
+│   │   └── main.py                  # Python entry point
+│   └── data/                        # Python-generated output
+│
+├── cpp/                             # C++ implementation
+│   ├── src/                         # C++ source files
+│   │   ├── main.cpp                 # C++ entry point
+│   │   ├── boundary_conditions.cpp
+│   │   ├── build_matrices.cpp
+│   │   ├── initialize.cpp
+│   │   ├── read.cpp
+│   │   ├── solve.cpp
+│   │   ├── utils.cpp
+│   │   └── write.cpp
+│   ├── include/                     # Header files
+│   ├── tests/                       # Unit tests
+│   └── data/                        # C++ output files (.h5, .png)
+|   └── plot.py                      # python script to generate png
+│
 ├── config/
-│   └── params.yaml        # Simulation parameters
-├── results/               # Aggregated simulation results and plots
+│   └── params.yaml                  # Shared simulation parameters
+│
+├── results/                         # Final collected results or post-processed outputs
+│
 ├── environment/
-│   ├──env.yml             # Conda environment specification
-    └── requirements.txt   # pip-based dependency list
-├── .gitignore             # Git ignore file
-└── README.md              # Project documentation
-```
+│   ├── env.yml                      # Conda environment for cross-language support
+│   └── requirements.txt             # For Python pip users
+│
+├── .gitignore                       # Exclude builds, data, etc.
+└── README.md                        # High-level project overview
 
+```
 ---
 
 ## 🧾 Simulation Parameters
