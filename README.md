@@ -113,6 +113,7 @@ The installed petsc version can compiled with following command
 │   ├── include/                     # Header files
 │   ├── tests/                       # Unit tests
 │   └── data/                        # C++ output files (.h5, .png)
+|   └── plot.py                      # python script to generate png
 │
 ├── config/
 │   └── params.yaml                  # Shared simulation parameters
