@@ -15,7 +15,7 @@ def write_h5(p, T, step):
         No return
     """
 
-    with h5py.File(f"data/output_{step:.1f}.h5", "w") as f:
+    with h5py.File(f"../data/output_{step:.1f}.h5", "w") as f:
         f.create_dataset("p", data = p) 
         f.create_dataset("T", data = T)
 

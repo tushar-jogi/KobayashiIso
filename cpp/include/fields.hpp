@@ -14,8 +14,8 @@
 void initialize_fields(std::vector<double>& p, std::vector<double>& T, int Nx, int Ny, double Te);
 
 struct Parameters {
-    int Nx, Ny, steps, tstep;
-    double Lx, Ly, dx, dt;
+    int Nx, Ny, Nz, steps, tstep, dim;
+    double Lx, Ly, Lz, dx, dt;
     double epsilon, tau, a, gamma, alpha, K;
 };
 

@@ -1,4 +1,4 @@
-from .initialize import initialize_fields
+from .initialize import initialize_grid_and_fields
 
-__all__ = ["initialize_fields"]
+__all__ = ["initialize_grid_and_fields"]
 

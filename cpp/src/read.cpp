@@ -6,8 +6,10 @@ void read_parameters(const std::string& filename, Parameters& params) {
     YAML::Node config = YAML::LoadFile(filename);
     params.Nx = config["Nx"].as<int>();
     params.Ny = config["Ny"].as<int>();
+    params.Nz = config["Nz"].as<int>();
     params.Lx = config["Lx"].as<double>();
     params.Ly = config["Ly"].as<double>();
+    params.Lz = config["Lz"].as<double>();
     params.dx = params.Lx / params.Nx;
     params.dt = config["dt"].as<double>();
     params.steps = config["steps"].as<int>();
@@ -18,4 +20,5 @@ void read_parameters(const std::string& filename, Parameters& params) {
     params.alpha = config["alpha"].as<double>();
     params.K = config["K"].as<double>();
     params.tstep = config["output_interval"].as<int>();
+    params.dim = config["dim"].as<int>();
 }
