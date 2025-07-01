@@ -27,13 +27,12 @@ set(HDF5_LIB_DIR "${CONDA_PREFIX}/lib")
 include_directories(${HDF5_INCLUDE_DIR})
 link_directories(${HDF5_LIB_DIR})
 
-# === HDF5 ===
-find_package(OpenCV REQUIRED)
-include_directories($Open_CV_INCLUDE_DIRS)
+# === OpenCV ===
+#find_package(OpenCV REQUIRED)
+#include_directories(${OpenCV_INCLUDE_DIRS})
 
-# === Executable and sources ===
-add_executable(CPPKobayashi
-    src/main.cpp
+# === Define library from src files ===
+add_library(kobayashi_core
     src/build_matrices.cpp
     src/solve.cpp
     src/initialize.cpp
@@ -43,6 +42,13 @@ add_executable(CPPKobayashi
     src/read.cpp
 )
 
-# === Linking libraries ===
-target_link_libraries(CPPKobayashi petsc yaml-cpp hdf5_cpp hdf5 ${OpenCV_LIBS})
+#target_link_libraries(kobayashi_core petsc yaml-cpp hdf5_cpp hdf5 ${OpenCV_LIBS})
+target_link_libraries(kobayashi_core petsc yaml-cpp hdf5_cpp hdf5)
 
+# === Executable ===
+add_executable(CPPKobayashi src/main.cpp)
+target_link_libraries(CPPKobayashi kobayashi_core)
+
+# === Tests ===
+enable_testing()
+add_subdirectory(tests)

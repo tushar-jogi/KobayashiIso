@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/home/tjogi/tmp_miniforge/envs/kobayashi/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,6 +127,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named kobayashi_core
+
+# Build rule for target.
+kobayashi_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kobayashi_core
+.PHONY : kobayashi_core
+
+# fast build rule for target.
+kobayashi_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/build
+.PHONY : kobayashi_core/fast
+
+#=============================================================================
 # Target rules for targets named CPPKobayashi
 
 # Build rule for target.
@@ -129,12 +152,25 @@ CPPKobayashi/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/build
 .PHONY : CPPKobayashi/fast
 
+#=============================================================================
+# Target rules for targets named test_CPP
+
+# Build rule for target.
+test_CPP: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_CPP
+.PHONY : test_CPP
+
+# fast build rule for target.
+test_CPP/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_CPP.dir/build.make tests/CMakeFiles/test_CPP.dir/build
+.PHONY : test_CPP/fast
+
 src/boundary_conditions.o: src/boundary_conditions.cpp.o
 .PHONY : src/boundary_conditions.o
 
 # target to build an object file
 src/boundary_conditions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/boundary_conditions.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/boundary_conditions.cpp.o
 .PHONY : src/boundary_conditions.cpp.o
 
 src/boundary_conditions.i: src/boundary_conditions.cpp.i
@@ -142,7 +178,7 @@ src/boundary_conditions.i: src/boundary_conditions.cpp.i
 
 # target to preprocess a source file
 src/boundary_conditions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/boundary_conditions.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/boundary_conditions.cpp.i
 .PHONY : src/boundary_conditions.cpp.i
 
 src/boundary_conditions.s: src/boundary_conditions.cpp.s
@@ -150,7 +186,7 @@ src/boundary_conditions.s: src/boundary_conditions.cpp.s
 
 # target to generate assembly for a file
 src/boundary_conditions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/boundary_conditions.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/boundary_conditions.cpp.s
 .PHONY : src/boundary_conditions.cpp.s
 
 src/build_matrices.o: src/build_matrices.cpp.o
@@ -158,7 +194,7 @@ src/build_matrices.o: src/build_matrices.cpp.o
 
 # target to build an object file
 src/build_matrices.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/build_matrices.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/build_matrices.cpp.o
 .PHONY : src/build_matrices.cpp.o
 
 src/build_matrices.i: src/build_matrices.cpp.i
@@ -166,7 +202,7 @@ src/build_matrices.i: src/build_matrices.cpp.i
 
 # target to preprocess a source file
 src/build_matrices.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/build_matrices.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/build_matrices.cpp.i
 .PHONY : src/build_matrices.cpp.i
 
 src/build_matrices.s: src/build_matrices.cpp.s
@@ -174,7 +210,7 @@ src/build_matrices.s: src/build_matrices.cpp.s
 
 # target to generate assembly for a file
 src/build_matrices.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/build_matrices.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/build_matrices.cpp.s
 .PHONY : src/build_matrices.cpp.s
 
 src/initialize.o: src/initialize.cpp.o
@@ -182,7 +218,7 @@ src/initialize.o: src/initialize.cpp.o
 
 # target to build an object file
 src/initialize.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/initialize.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/initialize.cpp.o
 .PHONY : src/initialize.cpp.o
 
 src/initialize.i: src/initialize.cpp.i
@@ -190,7 +226,7 @@ src/initialize.i: src/initialize.cpp.i
 
 # target to preprocess a source file
 src/initialize.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/initialize.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/initialize.cpp.i
 .PHONY : src/initialize.cpp.i
 
 src/initialize.s: src/initialize.cpp.s
@@ -198,7 +234,7 @@ src/initialize.s: src/initialize.cpp.s
 
 # target to generate assembly for a file
 src/initialize.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/initialize.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/initialize.cpp.s
 .PHONY : src/initialize.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -230,7 +266,7 @@ src/read.o: src/read.cpp.o
 
 # target to build an object file
 src/read.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/read.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/read.cpp.o
 .PHONY : src/read.cpp.o
 
 src/read.i: src/read.cpp.i
@@ -238,7 +274,7 @@ src/read.i: src/read.cpp.i
 
 # target to preprocess a source file
 src/read.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/read.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/read.cpp.i
 .PHONY : src/read.cpp.i
 
 src/read.s: src/read.cpp.s
@@ -246,7 +282,7 @@ src/read.s: src/read.cpp.s
 
 # target to generate assembly for a file
 src/read.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/read.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/read.cpp.s
 .PHONY : src/read.cpp.s
 
 src/solve.o: src/solve.cpp.o
@@ -254,7 +290,7 @@ src/solve.o: src/solve.cpp.o
 
 # target to build an object file
 src/solve.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/solve.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/solve.cpp.o
 .PHONY : src/solve.cpp.o
 
 src/solve.i: src/solve.cpp.i
@@ -262,7 +298,7 @@ src/solve.i: src/solve.cpp.i
 
 # target to preprocess a source file
 src/solve.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/solve.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/solve.cpp.i
 .PHONY : src/solve.cpp.i
 
 src/solve.s: src/solve.cpp.s
@@ -270,7 +306,7 @@ src/solve.s: src/solve.cpp.s
 
 # target to generate assembly for a file
 src/solve.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/solve.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/solve.cpp.s
 .PHONY : src/solve.cpp.s
 
 src/utils.o: src/utils.cpp.o
@@ -278,7 +314,7 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/utils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -286,7 +322,7 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/utils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -294,7 +330,7 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/utils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 src/write.o: src/write.cpp.o
@@ -302,7 +338,7 @@ src/write.o: src/write.cpp.o
 
 # target to build an object file
 src/write.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/write.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/write.cpp.o
 .PHONY : src/write.cpp.o
 
 src/write.i: src/write.cpp.i
@@ -310,7 +346,7 @@ src/write.i: src/write.cpp.i
 
 # target to preprocess a source file
 src/write.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/write.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/write.cpp.i
 .PHONY : src/write.cpp.i
 
 src/write.s: src/write.cpp.s
@@ -318,7 +354,7 @@ src/write.s: src/write.cpp.s
 
 # target to generate assembly for a file
 src/write.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKobayashi.dir/build.make CMakeFiles/CPPKobayashi.dir/src/write.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kobayashi_core.dir/build.make CMakeFiles/kobayashi_core.dir/src/write.cpp.s
 .PHONY : src/write.cpp.s
 
 # Help Target
@@ -329,7 +365,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... CPPKobayashi"
+	@echo "... kobayashi_core"
+	@echo "... test_CPP"
 	@echo "... src/boundary_conditions.o"
 	@echo "... src/boundary_conditions.i"
 	@echo "... src/boundary_conditions.s"

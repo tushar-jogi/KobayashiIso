@@ -1,3 +1,9 @@
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/CMakeFiles/kobayashi_core.dir
 /home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/CMakeFiles/CPPKobayashi.dir
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/CMakeFiles/test.dir
 /home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/CMakeFiles/edit_cache.dir
 /home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/CMakeFiles/rebuild_cache.dir
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/tests/CMakeFiles/test_CPP.dir
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/tests/CMakeFiles/test.dir
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/tests/CMakeFiles/edit_cache.dir
+/home/tjogi/PhaseTree_Assignment/KobayashiIso/cpp/build/tests/CMakeFiles/rebuild_cache.dir

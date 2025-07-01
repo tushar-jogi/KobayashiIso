@@ -1,0 +1,3 @@
+cpp/build
+.DS_Store
+cpp/data/*.h5
