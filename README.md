@@ -61,7 +61,11 @@ The Python simulation is structured around the main driver script:
 ```bash
 ./run.sh python
 ```
+**To run unit test**
 
+```bash
+./run.sh pythontest
+```
 This will run the directional solidification simulation using python code
 
 Simulation data will be saved to the `python/data/` directory in `.h5` and `.png` formats for analysis and visualization.
@@ -84,6 +88,11 @@ The installed petsc version can compiled with following command
 ./configure --force --download-vtk --with-vtk=1 --download-mpich --download-fftw --download-hdf5 --download-fblaslapack=1 --download-zlib --with-cxx-dialect=C++11 --download-hypre --with-debugging=0 --with-mpi-f90module-visibility=0 --with-hdf5=1 --with-hdf5-dir=$CONDA_PREFIX --with-hdf5-fortran-bindings=1 --with-cc=gcc --with-cxx=g++ --with-fc=gfortran -CFLAGS="-O3" -CXXFLAGS="-O3" -FFLAGS="-O3" -CUDAOPTFLAGS="-G"
 ```
 
+**To run cpp test cases**
+
+```bash
+./run.sh cpptest
+```
 ---
 
 ## 📁 Directory Structure
