@@ -9,7 +9,7 @@ steps: 5001
 output_interval: 500
 epsilon: 0.01
 tau: 0.0003
-K: 1.4
+K: 0.9
 a: 0.01
 alpha: 0.9
 gamma: 10.0
